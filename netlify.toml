@@ -1,0 +1,33 @@
+[build]
+  publish = "."
+
+# Редиректы для чистых URL (без .html)
+[[redirects]]
+  from = "/astana-1"
+  to = "/astana-1.html"
+  status = 200
+
+[[redirects]]
+  from = "/astana-2"
+  to = "/astana-2.html"
+  status = 200
+
+[[redirects]]
+  from = "/karaganda"
+  to = "/karaganda.html"
+  status = 200
+
+# Главная страница → первый филиал (или можно изменить)
+[[redirects]]
+  from = "/"
+  to = "/astana-1.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
